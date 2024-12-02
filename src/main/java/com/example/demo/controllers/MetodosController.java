@@ -5,7 +5,9 @@ import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.demo.model.Persona;
@@ -37,4 +39,19 @@ public class MetodosController {
 		personas.add(new Persona("CSharp", "951236874"));
 		return personas;
 	}
+	
+	@GetMapping("/Metodo3")
+	public ModelAndView Metodo3(@RequestParam(name = "nombre") String nombre) { //el parametro sera del nombre @RequestParam(name = "nombre")
+		ModelAndView mav = new ModelAndView("vista3"); //esta direccionando a la vista
+		mav.addObject("nombre", nombre);
+		return mav; 
+	}
+	
+	@GetMapping("/metodo4/{nombre}")
+	public ModelAndView getMethodName(@PathVariable(name="nombre") String nombre) {
+		ModelAndView mav = new ModelAndView("vista4"); //esta direccionando a la vista
+		mav.addObject("nombre", nombre);
+		return mav; 
+	}
+	
 }
