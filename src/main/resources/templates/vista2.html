@@ -8,7 +8,26 @@
 <body>
 
 <div class="container">
-	<h3>Vista 2</h3>
+	<br> <h3> Lista personas </h3> <br>
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th> Nombre </th>
+				<th> Telefono </th>
+				<th> Operaciones </th>
+			</tr>
+		</thead>
+		<tbody th:each="persona: ${personas}">
+			<tr>
+				<td th:text="${persona.nombre}">  </td>
+				<td th:text="${persona.telefono}">  </td>
+				<td>
+					<a class="btn btn-warning btn-sm"> Editar </a>
+					<a class="btn btn-danger btn-sm"> Borrar </a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
 </div>
 
 </body>
