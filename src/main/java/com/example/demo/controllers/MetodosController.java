@@ -42,14 +42,15 @@ public class MetodosController {
 	
 	@GetMapping("/Metodo3")
 	public ModelAndView Metodo3(@RequestParam(name = "nombre") String nombre) { //el parametro sera del nombre @RequestParam(name = "nombre")
-		ModelAndView mav = new ModelAndView("vista3"); //esta direccionando a la vista
+		ModelAndView mav = new ModelAndView("vista3"); 
 		mav.addObject("nombre", nombre);
 		return mav; 
 	}
 	
-	@GetMapping("/metodo4/{nombre}")
-	public ModelAndView getMethodName(@PathVariable(name="nombre") String nombre) {
-		ModelAndView mav = new ModelAndView("vista4"); //esta direccionando a la vista
+	@GetMapping("/Metodo4/{nombre}")
+//	public ModelAndView metodo4(@PathVariable(name="nombre") String nombre) {
+	public ModelAndView metodo4(@PathVariable() String nombre) {
+		ModelAndView mav = new ModelAndView("vista4");
 		mav.addObject("nombre", nombre);
 		return mav; 
 	}
